@@ -1,0 +1,83 @@
+body {
+    background: #272727;
+}
+
+table {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 4px 5px #232323;
+}
+
+tr {
+    background: linear-gradient(to bottom, #383838, #323232);
+}
+
+th {
+    text-shadow: 0px 2px 3px #2d2d2d;
+    width: 4em;
+}
+
+strike {
+    text-shadow: 0px 2px 2px #2d2d2d;
+}
+
+.form-control {
+    border: 1px solid #4ca2d0;
+}
+
+.btn-success {
+    background: linear-gradient(to bottom, #28A745, #20b443);
+    border-color: #14c73d;
+}
+
+.btn-danger {
+    background: linear-gradient(to bottom, #dc3545, #a72935);
+    border-color: #dc3545;
+}
+
+.completo {
+    color: #fff;
+    background: linear-gradient(to bottom, #3cda74, #2dab59);
+    border-top: 2px solid #2dab59 !important;
+}
+
+td.completo {
+    border-left: 1px solid #2dab59;
+}
+
+.btn-info {
+    background: linear-gradient(to bottom, #17a2b8, #3f8ca3);
+}
+
+.col-6 {
+    -ms-flex: 0 0 82%;
+    flex: 0 0 82%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.text-right {
+    width: 12em;
+    text-shadow: 0px 2px 3px #2d2d2d;
+    text-align: center !important;
+}
+
+@media only screen and (max-width: 768px) {
+    /* mobile */
+    [class*="col-"] {
+        margin: 0 auto;
+        max-width: 95%;
+    }
+    .col-2 {
+        width: 95%;
+    }
+    .btn-info {
+        margin-top: 3px;
+        margin-bottom: -18px;
+    }
+}
+
+.table th:first-child,
+.table td:first-child {
+    width: 100px !important;
+}
