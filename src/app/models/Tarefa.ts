@@ -1,6 +1,6 @@
 export class Tarefa{
 
-    id:number;
+    id: number;
     date: string; 
     title: string;
     status: boolean;

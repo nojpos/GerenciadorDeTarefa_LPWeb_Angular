@@ -1,19 +1,24 @@
 <br>
 <br>
 
-<div class="container col-6">
-
+<div class="container col-auto">
     <div class="row">
-        <div class="col-6">
-            <input id="tituloTarefa" type="text" class="form-control" placeholder="Tarefa" [(ngModel)]="tarefa.title">
+        <div class="col-10">
+            <input id="tituloTarefa" type="text" class="form-control form-control-sm" placeholder="Tarefa" [(ngModel)]="tarefa.title" (keydown.enter)="lerTarefa()">
         </div>
         <div class="col-2">
-            <button id="btnEnviar" class="btn btn-info" (click)="lerTarefa()">Adicionar</button>
+            <button id="btnEnviar" class="btn btn-outline-secondary btn-block btn-sm" (click)="lerTarefa()">Adicionar</button>
         </div>
     </div>
 
     <br>
-    <table class="table table-dark">
+    <table class="table table-striped table-light table-sm  table-bordered">
+        <thead>
+            <tr>
+              <th>Data</th>
+              <th>Titulo</th>
+              <th class="text-center">Ações</th>
+            </tr>
         <tbody>
             <tr *ngFor="let item of listaTarefa" id="{{item.id}}">
                 <td *ngIf="!item.status">{{item.date}}</td>
@@ -23,8 +28,8 @@
                 <td *ngIf="item.status"><s>{{item.title}}</s></td>
 
                 <td class="text-right" *ngIf="!item.status">
-                    <button id="btnConcluir" type="button" (click)="concluiTask(item.id)" class="btn btn-success">Conluir</button>
-                    <button id="btnExcluir" type="button" class="btn btn-danger" (click)="removeTask(item.id)">Excluir</button>
+                    <button id="btnConcluir" type="button" (click)="concluiTask(item.id)" class="btn btn-outline-success btn-sm">Conluir</button>
+                    <button id="btnExcluir" type="button" class="btn btn-outline-danger btn-sm" (click)="removeTask(item.id)">Excluir</button>
                 </td>
                 <td class="text-right" *ngIf="item.status"></td>
             </tr>
