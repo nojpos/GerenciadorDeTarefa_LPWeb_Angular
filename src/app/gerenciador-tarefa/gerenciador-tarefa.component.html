@@ -15,7 +15,7 @@
     <br>
     <table class="table table-dark">
         <tbody>
-            <tr *ngFor="let item of listaTarefa">
+            <tr *ngFor="let item of listaTarefa" id="{{item.id}}">
                 <td *ngIf="!item.status">{{item.date}}</td>
                 <td *ngIf="!item.status">{{item.title}}</td>
 
@@ -23,9 +23,10 @@
                 <td *ngIf="item.status"><s>{{item.title}}</s></td>
 
                 <td class="text-right" *ngIf="!item.status">
-                    <button id="btnConcluir" type="button" onclick="concluiTask(this)" name="806" class="btn btn-success">Conluir</button>
-                    <button id="btnExcluir" type="button" class="btn btn-danger" onclick="removeTask(this)" name="806">Excluir</button>
+                    <button id="btnConcluir" type="button" (click)="concluiTask(item.id)" name="806" class="btn btn-success">Conluir</button>
+                    <button id="btnExcluir" type="button" class="btn btn-danger" (click)="removeTask(item.id)" name="806">Excluir</button>
                 </td>
+                <td class="text-right" *ngIf="item.status"></td>
             </tr>
         </tbody>
     </table>

@@ -3,8 +3,7 @@ import { Tarefa } from '../models/Tarefa';
 
 @Component({
   selector: 'app-gerenciador-tarefa',
-  templateUrl: './gerenciador-tarefa.component.html',
-  styleUrls: ['./gerenciador-tarefa.component.css']
+  templateUrl: './gerenciador-tarefa.component.html'
 })
 export class GerenciadorTarefaComponent implements OnInit {
 
@@ -71,21 +70,38 @@ lerTarefa(value) {
     } 
     else {
       let tarefaFormatada = this.testaFormato(value);
-      let objetoTarefa = new Tarefa(this.formatDate(tarefaFormatada['date']), tarefaFormatada['title'], false);
+      let objetoTarefa = new Tarefa(this.random() ,this.formatDate(tarefaFormatada['date']), tarefaFormatada['title'], false);
       console.log(objetoTarefa)
 
       const userString = JSON.stringify(objetoTarefa);
-      let tarefa_id = this.random();
+      let tarefa_id = objetoTarefa.id
 
       localStorage.setItem(tarefa_id.toString(), userString);
 
       this.listaTarefa.push(objetoTarefa)
       console.log(this.listaTarefa)
 
+      document.getElementById('tituloTarefa').setAttribute('value', '')
+
       // let tarefa_atual = JSON.parse(localStorage.getItem(tarefa_id));
       // renderTask(tarefa_id, tarefa_atual["date"], tarefa_atual["title"], tarefa_atual["status"]);
 
       // document.getElementById("tituloTarefa").value = ""
     }
+  }
+
+  removeTask(id){
+    console.log(id)
+    let tarefaId = this.listaTarefa.findIndex(task => task.id === id);
+    this.listaTarefa.splice(tarefaId ,1)
+    localStorage.removeItem(id)
+  }
+
+  concluiTask(id){
+    console.log(id)
+    let tarefaId = this.listaTarefa.findIndex(task => task.id === id);
+    this.listaTarefa[tarefaId].status = true;
+
+    localStorage.setItem(id, JSON.stringify(this.listaTarefa[tarefaId]))
   }
 }
