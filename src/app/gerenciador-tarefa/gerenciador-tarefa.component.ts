@@ -7,7 +7,7 @@ import { Tarefa } from '../models/Tarefa';
 })
 export class GerenciadorTarefaComponent implements OnInit {
 
-  tarefa: Tarefa =  new Tarefa()
+  tarefa: Tarefa =  new Tarefa();
   listaTarefa: Tarefa[] = [];
 
   constructor() { 
@@ -25,7 +25,7 @@ export class GerenciadorTarefaComponent implements OnInit {
     }
     // Recupernado as strings salvas no LocalStrage e trasformando em Objeto JSON e adicionando a lista listaTarefa
     for (let i in keys){
-      this.listaTarefa.push(JSON.parse(localStorage.getItem(keys[i])))
+      this.listaTarefa.push(JSON.parse(localStorage.getItem(keys[i])));
     }
 }
 
@@ -55,7 +55,7 @@ lerTarefa() {
   else {
     let tarefaFormatada = this.testaFormato(this.tarefa.title);
     let objetoTarefa = {id: this.random(), date: tarefaFormatada['date'], title: tarefaFormatada['title'], status: false};
-    this.tarefa= objetoTarefa
+    this.tarefa= objetoTarefa;
 
     localStorage.setItem(this.tarefa.id.toString(), JSON.stringify(this.tarefa));
 
@@ -67,14 +67,14 @@ lerTarefa() {
 
   removeTask(id){
     let tarefaId = this.listaTarefa.findIndex(task => task.id === id);
-    this.listaTarefa.splice(tarefaId ,1)
-    localStorage.removeItem(id)
+    this.listaTarefa.splice(tarefaId ,1);
+    localStorage.removeItem(id);
   }
 
   concluiTask(id){
     let tarefaId = this.listaTarefa.findIndex(task => task.id === id);
     this.listaTarefa[tarefaId].status = true;
 
-    localStorage.setItem(id, JSON.stringify(this.listaTarefa[tarefaId]))
+    localStorage.setItem(id, JSON.stringify(this.listaTarefa[tarefaId]));
   }
 }

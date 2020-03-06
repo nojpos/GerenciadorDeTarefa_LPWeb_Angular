@@ -66,11 +66,16 @@ td.completo {
 .table th:last-child,
 .table td:first-child,
 .table td:last-child {
-    width: 135px !important;
+    width: 152px !important;
 }
 
 *{font-size: 15px;}
 
 .btn{
-    margin-left: 6px;
+    margin-right: 4px;
+    padding: 3px;
+}
+
+.material-icons{
+    font-size: 14px;
 }
